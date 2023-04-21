@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello</title>
+    <meta charset="utf-8" />
+    <style>
+      .poem { 
+        background-color: rgb(0, 0, 0);
+        border-width: 4px;
+        border-color: rgb(52, 52, 52);
+        border-style: solid;
+        height: 506px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+       }
+
+      .verse { 
+        background-color: SeaGreen;
+        color: LemonChiffon;
+        font-family: Arial;
+        font-size: 42px;
+        margin-top: 8px;
+        margin-bottom: 10px;
+        margin-left: 12px;
+        margin-right: 12px;
+
+        padding-top: 6px;
+        padding-bottom: 6px;
+        padding-left: 8px;
+        padding-right: 8px;
+
+        border-color: DodgerBlue;
+        border-radius: 24%;
+        border-style: solid;
+        border-width: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script src="react/react.js"></script>
+    <script src="react/react-dom.js"></script>
+    <script src="react/babel.js"></script>
+
+    <script type="text/babel">
+      ReactDOM.render (
+        <div class="poem">
+          <p class="verse">Roses are red</p>
+          <p class="verse">Violets are blue</p>
+          <p class="verse">Torii is nice and thats wicked cool</p>
+        </div>,
+        document.getElementById( 'app' )
+      );
+    </script>
+
+  </body>
+</html>

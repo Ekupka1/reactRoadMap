@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <Head>
+        <title>
+            Signature
+        </title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css"  href="my.css">
+    </Head>
+    <body>
+        <div id="app"></div>
+        <!-- App render here -->
+
+        <script src="react/react.js"></script>
+        <script src="react/react-dom.js"></script>
+        <script src="react/babel.js"></script>
+
+       <script type="text/babel">
+
+            class ColorButton extends React.Component{
+                constructor(){
+                    super();
+                    this.state = {mode:false};
+                    this.onClick = this.onClick.bind(this);
+                }
+
+                onClick(event){
+                    this.setState({mode: !this.state.mode});
+                }
+
+                render (){
+                    let color = this.state.mode ? "red" :"green";
+                    return (
+                        <button
+                        onClick={this.onClick}
+                        className={color}>Don't PUSH Me</button> )
+                }
+            }
+
+            const Closing = function(props){
+                return(
+                    <span>&mdash; {props.signoff}, </span>)
+            }
+
+            const Correspondent = function(props){
+                return(
+                    <span>
+                        {props.firstName} {props.lastName}
+                    </span>
+                )
+            }
+
+            const Signature = function(props){
+                return(
+                    <div>
+                        <Closing signoff = {props.signoff}/>
+                        <Correspondent
+                            firstName = {props.firstName}
+                            lastName = {props.lastName} />
+                        <ColorButton/>
+                    </div>
+                );
+            }
+
+            const s = ReactDOM.render(
+                <Signature
+                signoff = "Best regards"
+                firstName = "Robert"
+                lastName = "Bill" />,
+
+                document.getElementById("app"),
+            );
+        </script>
+    </body>
+</html>

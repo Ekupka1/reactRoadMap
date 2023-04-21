@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stylish</title>
+    <meta charset="utf-8">
+    <style>
+      .poem { 
+        background-color: LightSalmon;
+        border-width: 4px;
+        border-color: IndianRed;
+        border-style: solid;
+        height: 256px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+       }
+      .verse { 
+        background-color: SeaGreen;
+        color: LemonChiffon;
+        font-family: Arial;
+        font-size: 42px;
+        margin-top: 8px;
+        margin-bottom: 10px;
+        margin-left: 12px;
+        margin-right: 12px;
+
+        padding-top: 6px;
+        padding-bottom: 6px;
+        padding-left: 8px;
+        padding-right: 8px;
+
+        border-color: DodgerBlue;
+        border-radius: 24%;
+        border-style: solid;
+        border-width: 6px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+    </div>
+
+    <script src="react/react.js"></script>
+    <script src="react/react-dom.js"></script>
+    <script src="react/babel.js"></script>
+
+    <script type="text/babel">
+      ReactDOM.render(
+        <div className="poem">
+          <p className="verse">I must go</p>
+          <p className="verse">lonely sea and sky</p>
+          <p className="verse">a tall ship</p>
+          <p className="verse">a star to steer</p>
+        </div>,
+        document.getElementById( 'app' )
+      );
+    </script>
+
+  </body>
+</html>
