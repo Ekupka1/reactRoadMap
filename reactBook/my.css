@@ -38,6 +38,19 @@
     animation: ;
 }
 
+.center-image {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.50s ease-out;
+}
+
+.center-image.visible {
+  bottom: 70%;
+  transform: translate(-50%, -50%);
+}
+
 .green{
     
     background-color: green;

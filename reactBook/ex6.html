@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple table</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="react/react.js"></script>
+    <script src="react/react-dom.js"></script>
+    <script src="react/babel.js"></script>
+    <!-- Need CSS and script file -->
+
+      <script type="text/babel">
+        class Excel extends React.Component{
+           // render(){
+               // const headings = [];
+                //for(const label of this.props.headings){
+                    //for in shows the key of the variable rather then the name
+                  //  headings.push(<th>{label}</th>);
+               // }
+                //console.log(result);
+                //render(){
+                //return(
+                    //<table>
+                        //<thead>
+                            //<tr>
+                              //  {this.props.headings.map((label, idx) => { return (<th key={idx}> {label} </th>)})}
+                           // </tr>
+                       // </thead>
+                    //</table>
+               // );
+          //  }
+          constructor(props){
+            super();
+            this.state = {data: props.initialData};
+          }
+          render(){
+            return(
+                <table>
+                    <thead>
+                        <tr>
+                            {this.props.headers.map((title, idx) => (<th key={idx}> {title}</th>))}
+                        </tr>
+                    </thead>
+                <tbody>
+                    {this.state.data.map((row, idx) => (<tr key={idx}> {row.map((cell, idx) => (<td key={idx}> {cell} </td>))} </tr>))}
+                </tbody>
+            </table>
+            );
+            }
+        }
+
+        Excel.propTypes ={
+            headers: PropTypes.arrayOf(PropTypes.string), initialData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),};
+        
+        const headers = ['book', 'author', 'lang', 'published', 'sales'];
+
+        const data = [[
+        'A tale of two cities', 'Charels Dickens', 'English', '1895', '200 million',],
+        ['Le Petit Prince', 'Antoine de Saint-Exupery','French', '1943', '150 million',],
+        ["Harry Potter and the Philosopher's Stone", 'J.K rowling', 'English', '1997', '120 million',],
+        ['And then there were none','Agatha Christie','English','1939','100 million',],
+        ['Dream of the red chamber','Cao Zueqin', 'Chinese','1791','100 million',],
+        ['The hobbit', 'J.R.R. Tolkien', 'english', '1937', '100 million'],];
+        
+        ReactDom.render(
+            <Excel headers={headers} initialData={data} />, document.getElementById('app')
+        )
+        //const headings = ['books', 'authors', 'price'];
+        //const group= headings.map( nav => <th>{nav}</th>);
+
+       // console.log(group);   
+       //const roww = [['a','b'],['c','d']];
+
+       //const r0 = roww.map(row => '<tr>' + row.map( item => '<tr>' + item+ '</tr>')+ '</tr>');
+       //console.log(r0);
+        
+        //ReactDOM.render(
+          //  <Excel headings={headings} />,
+            //document.getElementById('app')
+        //);
+
+     
+    </script>
+    <!-- Know Js doesn't support types and  three steps to add sort function-->
+</body>
+</html>

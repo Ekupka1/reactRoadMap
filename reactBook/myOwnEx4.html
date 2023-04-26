@@ -5,8 +5,7 @@
             Signature
         </title> -->
     <meta charset="utf-8" />
-    <link rel="stylesheet"  href="my.css" />
-    
+    <link rel="stylesheet" href="my.css" />
   </head>
   <body>
     <div id="app"></div>
@@ -16,42 +15,40 @@
     <script src="react/react-dom.js"></script>
     <script src="react/babel.js"></script>
 
-      <script type="text/babel">
+    <script type="text/babel">
 
-        class ColorButton extends React.Component {
-          constructor() {
-            super();
-           // this.state = { mode: false};
-            this.state = { mode: false, showImage: false};
-            this.onClick = this.onClick.bind(this);
-          }
-
-          onClick(event) {
-            this.setState({mode: !this.state.mode, showImage: !this.state.showImage});
-           // this.setState({mode: !this.state.mode});
-          }
-
-          render() {
-            let color = this.state.mode ? "red" : "green";
-            let img = <img src="./pp.gif" className="App-logo" alt="logo" />
-            return (
-              <div className="filler">
-                <div className="dot"></div>
-                <div>
-                <button id="btn" onClick={this.onClick} className={color}>
-                  Don't PUSH Me 
-                </button>
-               
-            </div>
-            </div>
-            );
-            
-          }
+      class ColorButton extends React.Component {
+        constructor() {
+          super();
+          this.state = { mode: false };
+          this.onClick = this.onClick.bind(this);
         }
-        
-        const s = ReactDOM.render(<ColorButton />, document.getElementById("app"));
-        
-      </script>
- 
+      
+        onClick(event) {
+          this.setState({ mode: !this.state.mode });
+        }
+      
+        render() {
+          let color = this.state.mode ? "red" : "green";
+          return (
+            <div className="filler">
+              <div className="dot"></div>
+              <div>
+                <button id="btn" onClick={this.onClick} className={color}>
+                  Don't PUSH Me
+                </button>
+                {this.state.mode && (
+                  <img src="./pp.gif" alt="Your image" className="center-image" />
+                )}
+              </div>
+            </div>
+          );
+        }
+      }
+      
+
+
+      ReactDOM.render(<ColorButton />, document.getElementById("app"));
+    </script>
   </body>
 </html>
